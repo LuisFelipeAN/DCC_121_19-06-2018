@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exemplo 03</title>
+  </head>
+    <style>
+      .aprovado{
+        background-color: green;
+      }
+      .reprovado{
+        background-color: red;
+      }
+    </style>
+
+  <body>
+    <h1>Exemplo 03</h1>
+    <input id="nome" type="text" placeholder="Nome">
+    <input id="nota" type="text" placeholder="Nota">
+    <button>Adicionar</button>
+    <table border="1">
+      <thead>
+        <th>Nome Aluno</th>
+        <th>Nota</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <script>
+      var nome = document.querySelector("#nome");
+      var nota = document.querySelector("#nota");
+      var tabela = document.querySelector("body > table > tbody");
+      var bntAdicionar = document.querySelector("body > button");
+
+      function adicionar(){
+        var novoTr = document.createElement("tr");
+        var tdNota = document.createElement("td");
+        var tdNome = document.createElement("td");
+        var classe;
+        if (nota.value>60){
+          classe = "aprovado";
+        }else classe = "reprovado";
+        tdNota.textContent = nota.value;
+        tdNome.textContent = nome.value;
+        tdNota.classList.add(classe);
+        tdNome.classList.add(classe);
+        nota.value = "";
+        nome.value="";
+        nome.focus();
+        novoTr.appendChild(tdNome);
+        novoTr.appendChild(tdNota);
+        tabela.appendChild(novoTr);
+      }
+      bntAdicionar.addEventListener("click",adicionar);
+
+    </script>
+  </body>
+</html>

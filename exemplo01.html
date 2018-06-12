@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exemplo 01</title>
+  </head>
+  <style>
+
+  </style>
+  <body>
+    <h1>Exemplo 01</h1>
+    <p>Este é o exemplo 01.</p>
+    <p>A soma de <span contenteditable="true">2</span>+<span contenteditable="true">3</span> é <span>?</span></p>
+    <button>Calcular</button>
+    <input type="button" name="botao" value="SetTitulo" onclick="setTitulo()">
+    <script>
+      var h1 = document.querySelector("h1");
+      h1.textContent = " Exemplo 01: manipulando DOM";
+      var botaoCalcular = document.querySelector("button");
+      botaoCalcular.addEventListener("click",calcular);
+      function calcular(){
+        var spans = document.querySelectorAll("span");
+        var a,b,resultado;
+        a=Number(spans[0].textContent);
+        b=Number(spans[1].textContent);
+        spans[2].textContent=a+b;
+      }
+
+      function setTitulo(){
+        var h1 = document.querySelector("h1");
+        h1.textContent = "titulo";
+      }
+
+    </script>
+
+
+  </body>
+</html>
