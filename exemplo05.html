@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exemplo 05</title>
+    <style>
+      form{
+        text-align: right;
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exemplo 05</h1>
+    <form name="calcula">
+      <label>
+         Primeiro elemento
+        <input type="text" name="a" value=""/>
+      </label>
+      <label for="b">Segundo Elemento</label>
+      <input type="text" name="b" value=""/>
+      <div>
+        <label>botao enviar</label>
+        <input type="submit" name="enviar"/>
+      </div>
+
+      <input type="text" name="soma" value=""/>
+      <input type="reset"/>
+    </form>
+    <script>
+      var botao = document.calcula.addEventListener("click",calcularSoma);
+
+      function calcularSoma(e){
+        e.preventDefault();
+        document.calcula.soma.value  = Number(document.calcula.a.value)+Number(document.calcula.b.value);
+      }
+    </script>
+  </body>
+</html>
